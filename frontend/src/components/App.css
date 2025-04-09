@@ -1,0 +1,251 @@
+/* Reset default styles for consistency */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+}
+
+/* Body and page styling */
+body, html {
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  margin: 0; /* Remove default margins */
+  background-color: #f5f5f5; /* Light gray background for the entire app */
+  color: #333; /* Dark text color for readability */
+  overflow: hidden; /* Prevent unwanted scrollbars */
+}
+
+/* Base App container layout */
+.App {
+  display: grid;
+  grid-template-columns: 250px 1fr; /* Sidebar (fixed width) and main content (remaining space) */
+  grid-template-rows: auto 1fr; /* Header (auto height) and content (remaining space) */
+  height: 100vh; /* Full viewport height */
+  width: 100vw; /* Full viewport width */
+  overflow: hidden; /* Prevent scrollbars outside the layout */
+}
+
+/* Header styling */
+header {
+  background-color: #2c3e50; /* Dark blue header */
+  color: white;
+  grid-column: 1 / span 2; /* Full-width header */
+  padding: 10px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+  position: sticky;
+  top: 0;
+  z-index: 1000; /* Ensure header stays above other content */
+}
+
+/* Header title */
+header h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+}
+
+/* New Article button in the header */
+header button {
+  background-color: #3498db; /* Bright blue button */
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease, transform 0.1s ease;
+}
+
+header button:hover {
+  background-color: #2980b9; /* Darker blue on hover */
+  transform: translateY(-2px); /* Slight lift effect */
+}
+
+header button:active {
+  transform: translateY(0); /* Reset lift on click */
+}
+
+/* Sidebar (Nav) styling */
+nav {
+  background-color: #dee9ff; /* Light blue sidebar */
+  padding: 15px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  overflow-y: auto; /* Allow scrolling within the sidebar if needed */
+  height: 100%; /* Ensure the sidebar takes the full height of its grid cell */
+}
+
+/* Sidebar article links */
+nav p {
+  margin-bottom: 10px;
+  cursor: pointer;
+  font-size: 1rem;
+  color: #2c3e50; /* Dark blue text for contrast */
+  transition: color 0.3s ease;
+}
+
+nav p:hover {
+  color: #3498db; /* Bright blue on hover */
+  text-decoration: underline;
+}
+
+/* Main content area styling */
+main {
+  padding: 20px;
+  overflow-y: auto; /* Allow scrolling within the main content */
+  height: 100%; /* Fill the full height of its grid cell */
+  width: 100%; /* Fill the full width of its grid cell */
+  background-color: #f5f5f5; /* Match the body background */
+}
+
+/* Article styling */
+article {
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Subtle shadow */
+  padding: 20px;
+  margin-bottom: 20px;
+  max-width: 800px; /* Limit article width for readability */
+  margin-left: auto; /* Center the article */
+  margin-right: auto;
+}
+
+/* Article date */
+article .date {
+  font-style: italic;
+  color: #777;
+  margin-bottom: 10px;
+}
+
+/* Article body */
+article .body {
+  white-space: pre-wrap; /* Preserve line breaks */
+  line-height: 1.6; /* Improve readability */
+}
+
+/* Article action buttons (Edit/Delete) */
+article button {
+  background-color: #3498db; /* Blue for Edit */
+  color: white;
+  border: none;
+  padding: 8px 12px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  margin-right: 10px;
+  transition: background-color 0.3s ease;
+}
+
+article button:last-child {
+  background-color: #e74c3c; /* Red for Delete */
+}
+
+article button:hover {
+  background-color: #2980b9; /* Darker blue for Edit on hover */
+}
+
+article button:last-child:hover {
+  background-color: #c0392b; /* Darker red for Delete on hover */
+}
+
+/* Form (Article Entry) styling */
+form {
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+  max-width: 800px; /* Limit form width for readability */
+  margin: 0 auto; /* Center the form */
+  background-color: white;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+/* Form inputs */
+form input,
+form textarea {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+form input:focus,
+form textarea:focus {
+  border-color: #3498db; /* Blue border on focus */
+  outline: none;
+}
+
+form textarea {
+  resize: vertical;
+  min-height: 150px;
+}
+
+/* Form submit button */
+form button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  align-self: flex-start;
+}
+
+form button:hover {
+  background-color: #2980b9;
+}
+
+/* Error message styling */
+.error {
+  background-color: #e74c3c;
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  margin: 15px 0;
+  text-align: center;
+}
+
+/* Responsive Design for smaller screens */
+@media (max-width: 768px) {
+  .App {
+    grid-template-columns: 1fr; /* Stack the layout on smaller screens */
+    grid-template-rows: auto auto 1fr; /* Header, nav, and main content */
+  }
+
+  nav {
+    grid-row: 2; /* Place nav below the header */
+    flex-direction: row; /* Horizontal layout for nav on small screens */
+    flex-wrap: wrap; /* Allow wrapping of nav items */
+    gap: 10px;
+    padding: 10px;
+    overflow-x: auto; /* Allow horizontal scrolling if needed */
+  }
+
+  main {
+    grid-row: 3; /* Place main content below nav */
+    padding: 10px;
+  }
+
+  header {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+  form input,
+  form textarea {
+    width: 100%; /* Full width for inputs on small screens */
+  }
+
+  article {
+    margin: 15px 0; /* Add spacing between articles on smaller screens */
+  }
+}
